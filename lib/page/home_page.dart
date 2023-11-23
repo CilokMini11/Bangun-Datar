@@ -1,3 +1,8 @@
+import 'package:bangun_datar_kelas_c/controller/jajar_genjang_controller.dart';
+import 'package:bangun_datar_kelas_c/page/jajar_genjang_page.dart';
+import 'package:bangun_datar_kelas_c/page/persegi_page.dart';
+import 'package:bangun_datar_kelas_c/page/persegi_panjang_page.dart';
+import 'package:bangun_datar_kelas_c/page/segitiga_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -6,6 +11,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF343434),
       appBar: AppBar(
           centerTitle: true,
           title: Text(
@@ -17,21 +23,51 @@ class HomePage extends StatelessWidget {
         Row(
           children: [
             Expanded(
-                child:
-                    CustomMenu(title: "Persegi", imageAsset: "assets/p.png")),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push((context),
+                      MaterialPageRoute(builder: (context) => PersegiPage()));
+                },
+                child: CustomMenu(title: "Persegi", imageAsset: "assets/p.png"),
+              ),
+            ),
             Expanded(
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      (context),
+                      MaterialPageRoute(
+                          builder: (context) => PersegiPanjangPage()));
+                },
                 child: CustomMenu(
-                    title: "Persegi Panjang", imageAsset: "assets/pp.png")),
+                    title: "Persegi Panjang", imageAsset: "assets/pp.png"),
+              ),
+            ),
           ],
         ),
         Row(
           children: [
             Expanded(
-                child:
-                    CustomMenu(title: "Segitiga", imageAsset: "assets/s.png")),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push((context),
+                      MaterialPageRoute(builder: (context) => SegitigaPage()));
+                },
+                child: CustomMenu(title: "Segitiga", imageAsset: "assets/s.png"),
+              ),
+            ),
             Expanded(
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      (context),
+                      MaterialPageRoute(
+                          builder: (context) => JajarGenjangPage()));
+                },
                 child: CustomMenu(
-                    title: "Jajar Genjang", imageAsset: "assets/jg.png")),
+                    title: "Jajar Genjang", imageAsset: "assets/jg.png"),
+              ),
+            ),
           ],
         )
       ]),
@@ -63,14 +99,13 @@ class CustomMenu extends StatelessWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
-            imageAsset,
-            width: 350),
-          Padding(padding: const EdgeInsets.all(8.0),
-          child: Text(
-              title,
-              style: TextStyle(color: Color(0xFFFFFFFF),)
-          ),
+          Image.asset(imageAsset, width: 350),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(title,
+                style: TextStyle(
+                  color: Color(0xFFFFFFFF),
+                )),
           ),
         ],
       )),
